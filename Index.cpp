@@ -4,33 +4,39 @@ using namespace std;
 int main()
 {
     //Criação de variáveis
-    int numeroSecreto = 0;
+    const int NUMERO_SECRETO = 50;
     int chute = 0;
 
     cout << "Jogo da adivinhação" <<endl <<endl;
 
-    cout << "Escolha um número para chutar: ";
-    cin >> chute;
+    bool naoAcertou = NUMERO_SECRETO != chute;
 
-    cout << "Seu chute é " <<chute <<endl;
-
-    bool acertou = chute == numeroSecreto;
-    bool maiorque = chute > numeroSecreto;
-    bool menorque = chute < numeroSecreto;
-
-    if (acertou)
+    do
     {
-        cout << "Parabéns! O número secreto é " << numeroSecreto << "!" <<endl;
-    }
+        cout << "Escolha um número para chutar: ";
+        cin >> chute;
 
-    else if (menorque)
-    {
-        cout << "O número secreto é menor que o chute." <<endl;
-    }
+        bool acertou = chute == NUMERO_SECRETO;
+        bool maiorque = chute > NUMERO_SECRETO;
+        bool menorque = chute < NUMERO_SECRETO;
 
-    else if (maiorque)
-    {
-        cout << "O número secreto é maior que o chute." << endl;
-    }
+        if (acertou)
+        {
+            cout << "Parabéns! O número secreto é " << NUMERO_SECRETO << "!" <<endl;
+        }
+
+        else if (menorque)
+        {
+            cout << "O número secreto é menor que o chute." <<endl;
+        }
+
+        else if (maiorque)
+        {
+            cout << "O número secreto é maior que o chute." << endl;
+        }
+    } while (naoAcertou);
+    
+
+    
     
 }
