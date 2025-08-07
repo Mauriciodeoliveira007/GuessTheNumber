@@ -9,20 +9,20 @@ int main()
 
     cout << "Jogo da adivinhação" <<endl <<endl;
 
-    bool naoAcertou = NUMERO_SECRETO != chute;
+    bool naoAcertou = true;
 
-    do
-    {
+    while (naoAcertou) {
         cout << "Escolha um número para chutar: ";
         cin >> chute;
 
         bool acertou = chute == NUMERO_SECRETO;
-        bool maiorque = chute > NUMERO_SECRETO;
-        bool menorque = chute < NUMERO_SECRETO;
+        bool maiorque = chute < NUMERO_SECRETO;
+        bool menorque = chute > NUMERO_SECRETO;
 
         if (acertou)
         {
             cout << "Parabéns! O número secreto é " << NUMERO_SECRETO << "!" <<endl;
+            naoAcertou = false;
         }
 
         else if (menorque)
@@ -34,8 +34,7 @@ int main()
         {
             cout << "O número secreto é maior que o chute." << endl;
         }
-    } while (naoAcertou);
-    
+    }
 
     
     
